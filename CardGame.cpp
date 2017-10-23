@@ -6,6 +6,7 @@
 int main()
 {
 	CardStack c;
+	c.printDeck();
 	c.shuffle();
 
 	c.printDeck();

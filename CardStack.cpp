@@ -36,18 +36,31 @@ void CardStack::printDeck()
 
 }
 
+int CardStack::getDeckSize()
+{
+
+	Card** deckptr = cardDeck +INIT_DECK_SIZE -1 ;
+	int drawnCards = 0;
+	while(*deckptr == NULL)
+	{
+		drawnCards--;
+		deckptr--;
+	}
+	return INIT_DECK_SIZE - drawnCards;
+}
+
 void CardStack::shuffle()
 {
 	Card** deckptr = cardDeck;
 	for(int i = 0; i < INIT_DECK_SIZE; i++)
 	{
-		int randomDeckPos = rand() % 51;
+		int randomDeckPos = rand() % getDeckSize();
 
 		//choose again if randomindex ends up being equal to index
 		//we are trying to swap
 		while(randomDeckPos == i)
 		{
-			randomDeckPos = rand() % 51;
+			randomDeckPos = rand() % getDeckSize();
 		}
 
 		std::swap(deckptr[i],deckptr[randomDeckPos]);
