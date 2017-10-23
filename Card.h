@@ -2,20 +2,28 @@
 #define CARD_H
 
 #include <string>
-#include <iostream>
 
 using std::string;
 
 class Card {
 	private:
-		int value;
+		int intValue;
+		string strValue;
 		string suit;
 
+	public:
 		const static string diamonds;
 		const static string clubs;
 		const static string hearts;
 		const static string spades;
 		Card (int value, string s);
+		Card(string value, string suit);
+
+		int getIntValue() const;
+		string getStrValue() const;
+		void print();
+
+
 };
 
 #endif
