@@ -21,7 +21,7 @@ int Card::getIntValue() const{
 void Card::print()
 {
 	std::cout << "Card Value: " + strValue
-	<< "\n" << "Card Suit: " << suit;
+	<< std::endl << "Card Suit: " << suit << std::endl << std::endl;
 }
 
 Card::Card(string value, string s): suit(s)

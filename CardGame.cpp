@@ -1,9 +1,17 @@
-#include <string>
-#include "Card.h"
 
+#include <iostream>
+#include "CardStack.h"
+#include "Card.h"
 
 int main()
 {
-	Card c(13,Card::clubs);
-	c.print();
+	CardStack c;
+	c.shuffle();
+
+	c.printDeck();
+	return 0;
+
+
+
+
 }
