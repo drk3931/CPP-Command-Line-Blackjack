@@ -14,6 +14,10 @@ string Card::getStrValue() const{
 	return strValue;
 }
 
+const string& Card::getSuit() const{
+	return suit;
+}
+
 int Card::getIntValue() const{
 	return intValue;
 }

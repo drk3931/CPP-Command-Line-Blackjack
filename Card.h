@@ -21,6 +21,7 @@ class Card {
 
 		int getIntValue() const;
 		string getStrValue() const;
+		const string& getSuit() const;
 		void print();
 
 

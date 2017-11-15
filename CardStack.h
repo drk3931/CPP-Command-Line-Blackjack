@@ -27,7 +27,7 @@ public:
 	CardStack();
 	void printDeck();
 	bool isEmpty();
-	int CardStack::getDeckSize();
+	int getDeckSize();
 
 };
 

@@ -43,7 +43,7 @@ int CardStack::getDeckSize()
 	int drawnCards = 0;
 	while(*deckptr == NULL)
 	{
-		drawnCards--;
+		drawnCards++;
 		deckptr--;
 	}
 	return INIT_DECK_SIZE - drawnCards;
@@ -81,6 +81,7 @@ Card* CardStack::peek()
 
 	return *cardptr;
 }
+
 
 Card* CardStack::draw()
 {
