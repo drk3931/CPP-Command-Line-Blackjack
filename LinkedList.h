@@ -18,6 +18,8 @@ private:
 	Node * tail;
 	int size;
 
+	bool cardEqual(Card& c,  Node* nodeptr);
+
 public:
 	LinkedList();
 	int getCount();

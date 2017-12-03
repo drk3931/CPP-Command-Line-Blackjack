@@ -12,8 +12,43 @@ LinkedList::Node::Node(Card* c,Node* next):data(c),next(next)
 LinkedList::Node::Node(Card* c):data(c),next(NULL)
 {}
 
-LinkedList::LinkedList():head(NULL),tail(NULL)
+LinkedList::LinkedList():head(NULL),tail(NULL), size(0)
+{}
+
+bool LinkedList::cardEqual(Card& c, Node* nodeptr)
 {
+	return nodeptr->data->getIntValue() == c.getIntValue()
+			&& nodeptr->data->getSuit() == c.getSuit();
+}
+
+
+
+
+void LinkedList::remove(Card& card)
+{
+	Node* nodeptr = head;
+	Node* nodelast = head;
+
+	if(nodeptr == head && cardEqual(card, nodeptr))
+	{
+		Node* tmp = head;
+		head = head->next;
+		delete tmp;
+		return;
+
+	}
+
+	while(nodeptr->next != NULL)
+	{
+		if(cardEqual(card, nodeptr))
+		{
+			nodelast->next = nodeptr->next;
+			delete nodeptr;
+		}
+
+		nodelast = nodeptr;
+		nodeptr = nodeptr->next;
+	}
 
 }
 
@@ -50,6 +85,12 @@ void LinkedList::insertAtIndex(int index, Card * data)
 
 void LinkedList::insertAtTail(Card* data)
 {
+	if(head == NULL)
+	{
+		head = new Node(data,NULL);
+		return;
+	}
+
 	Node* nodeptr = head;
 	while(nodeptr->next != NULL)
 	{
@@ -66,6 +107,7 @@ void LinkedList::insertAtHead(Card* data)
 	if(head == NULL)
 	{
 		head = new Node(data,NULL);
+		return;
 
 	}
 	else{
@@ -108,7 +150,7 @@ void LinkedList::display()
 	while(nodeptr != NULL)
 	{
 		Card c = *(nodeptr->data);
-		std::cout << c.getSuit() << " " << c.getIntValue()<< std::endl;
+		std::cout << c.getSuit() << " " << c.getStrValue()<< std::endl;
 		nodeptr = nodeptr ->next;
 	}
 }

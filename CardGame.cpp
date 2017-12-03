@@ -1,28 +1,35 @@
 #include <iostream>
-#include "CardStack.h"
+#include "Deck.h"
 #include "LinkedList.h"
 
 
-int main()
+int m2()
 {
 
-	CardStack c;
+	Deck deck;
+
+	deck.shuffle();
 
 
-	LinkedList l;
-	l.insertAtHead(new Card(3,Card::clubs));
-	l.insertAtHead(new Card(4,Card::clubs));
-	l.insertAtHead(new Card(10,Card::clubs));
-	l.insertAtHead(new Card(5,Card::clubs));
+	deck.printAll();
 
-	l.insertAtTail(c.draw());
-	l.insertAtTail(c.draw());
-	l.insertAtTail(c.draw());
+	LinkedList list;
+	list.insertAtTail(deck.draw());
+	list.insertAtTail(deck.draw());
+	list.insertAtTail(deck.draw());
+	list.insertAtTail(deck.draw());
+	list.insertAtTail(deck.draw());
+	list.insertAtTail(deck.draw());
+	list.insertAtTail(deck.draw());
 
-	l.insertAtIndex( 3, new Card(1, Card::diamonds));
+
+	list.display();
 
 
-	l.display();
+
+
+
+
 
 
 }
